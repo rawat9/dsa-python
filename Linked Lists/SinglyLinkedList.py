@@ -6,19 +6,22 @@ class Node:
 class LinkedList(object):
     def __init__(self, head=None):
         self.head = head
+        self.tail = None
         self.length = 1
         
-    def append(self, new_element):
+    def append(self, data):
         """
         Adds a new Node at the end of the Linked List
         """
-        current = self.head
+        newNode = Node(data)
+        
         if self.head:
-            while current.next:
-                current = current.next
-            current.next = new_element
+            self.tail.next = newNode
+            self.tail = newNode
+            self.length += 1
         else:
-            self.head = new_element
+            self.head = newNode
+            self.tail = self.head
 
     def get_position(self, position):
         counter = 1
@@ -79,7 +82,6 @@ class LinkedList(object):
         newNode.next = holdingPointer
         self.length += 1
 
-
     def traverseToIndex(self, index):
         """
         Helper Function: find the value at index
@@ -91,7 +93,6 @@ class LinkedList(object):
             counter += 1
         return current
 
-
     def remove(self, index):
         leader = self.traverseToIndex(index-1) 
 
@@ -100,11 +101,35 @@ class LinkedList(object):
         leader.next = node.next
         self.length -= 1
         
+    def frequency(self, data):
+        """
+        Return the count of element
+        """
+        count = 0
+        current = self.head
+
+        while current.next:
+            if current.data == data:
+                count += 1
+            current = current.next
+
+        return f'Frequency of {data}: {count}'
+
+    def lessthan(self, data):
+        count = 0
+        current = self.head
+
+        while current.next:
+            if current.data < data:
+                count += 1
+            current = current.next
+        
+        return f'Numbers less than {data}: {count}'
+
 
 if __name__ == '__main__':
     ll = LinkedList()
     ll.append(10)
-    ll.append(5)
     ll.append(16)
     ll.append(20)
     ll.prepend(2)
@@ -113,3 +138,5 @@ if __name__ == '__main__':
     ll.insert(10, 50)
     ll.remove(4)
     print('LinkedList:', ll.print_list(), 'Length:', ll.length)
+    print(ll.frequency(2))
+    print(ll.lessthan(50))
