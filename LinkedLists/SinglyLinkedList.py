@@ -103,7 +103,7 @@ class LinkedList(object):
         
     def frequency(self, data):
         """
-        Return the count of element
+       Return the count of element
         """
         count = 0
         current = self.head
@@ -129,14 +129,19 @@ class LinkedList(object):
 
 if __name__ == '__main__':
     ll = LinkedList()
-    ll.append(10)
-    ll.append(16)
-    ll.append(20)
-    ll.prepend(2)
-    ll.insert(2, 9)
-    ll.insert(4, 99)
-    ll.insert(10, 50)
-    ll.remove(4)
+    ll.append(22)
+    ll.append(2)
+    ll.append(2)
+    ll.append(77)
+    ll.append(100)
+    ll.append(6)
+    ll.append(43)
+    # ll.insert(4, 99)
+    # ll.insert(10, 3)
+    # ll.remove(4)
     print('LinkedList:', ll.print_list(), 'Length:', ll.length)
     print(ll.frequency(2))
-    print(ll.lessthan(50))
+    print(ll.lessthan(100))
+
+
+
