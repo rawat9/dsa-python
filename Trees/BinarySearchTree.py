@@ -190,8 +190,8 @@ class BinarySearchTree:
         if node == None:
             return -1
 
-        left_height = self.minHeight(node.left)
-        right_height = self.minHeight(node.right)
+        left_height = self.maxHeight(node.left)
+        right_height = self.maxHeight(node.right)
 
         return 1 + max(left_height, right_height)
 
@@ -205,14 +205,13 @@ if __name__ == "__main__":
     bst.insert(6)
     bst.insert(11)
     bst.insert(17)
-    bst.insert(0)
-    bst.insert(7)
+    bst.insert(20)
     print(bst.lookup(17))
     """
             9
         4        12
     1      6   11   17 
     """
-    bst.print_tree()
+    print(bst.print_tree())
     print(bst.minHeight(bst.root))
     print(bst.maxHeight(bst.root))
