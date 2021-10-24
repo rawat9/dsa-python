@@ -210,8 +210,9 @@ if __name__ == "__main__":
     """
             9
         4        12
-    1      6   11   17 
+    1      6   11   17
+                       20            
     """
     print(bst.print_tree())
-    print(bst.minHeight(bst.root))
-    print(bst.maxHeight(bst.root))
+    print('Minimum Height of the Tree:', bst.minHeight(bst.root))
+    print('Maximum Height of the Tree:', bst.maxHeight(bst.root))
